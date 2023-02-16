@@ -1,0 +1,649 @@
+{
+  "$id": "defs",
+  "definitions": {
+    "common": {
+      "phone": {
+        "type": "string",
+        "minLength": "10",
+        "maxLength": "10"
+      }
+    },
+    "admin": {
+      "email": {
+        "type": "string",
+        "title": "email"
+      },
+      "password": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      }
+    },
+    "doctor": {
+      "id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "name": {
+        "type": "string",
+        "title": "name",
+        "minLength": 1
+      },
+      "phone": {
+        "type": "string",
+        "pattern": "^[0-9]{10}$"
+      },
+      "registrationNumber": {
+        "type": "string",
+        "minLength": 1
+      },
+      "district": {
+        "type": "string",
+        "minLength": 1
+      },
+      "taluk": {
+        "type": "string",
+        "minLength": 1
+      },
+      "city": {
+        "type": "string",
+        "minLength": 1
+      },
+      "streetName": {
+        "type": "string",
+        "minLength": 1
+      },
+      "doorNo": {
+        "type": "string",
+        "minLength": 1
+      },
+      "pincode": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 6
+      },
+      "photo": {
+        "type": "string"
+      },
+      "signature": {
+        "type": "string"
+      },
+      "designation": {
+        "type": "string",
+        "minLength": 1
+      },
+      "currently_working": {
+        "type": "string",
+        "minLength": 1
+      },
+      "otp": {
+        "type": "string",
+        "pattern": "^[0-9]{4}$"
+      },
+      "approval_status": {
+        "type": "string",
+        "enum": ["pending", "approved", "rejected"]
+      },
+      "message": {
+        "type": "string",
+        "minLength": 1
+      },
+      "email": {
+        "type": "string",
+        "pattern": "[a-zA-Z0-9._+-]*@[a-zA-Z]*.[a-zA-Z]{2,3}"
+      },
+      "status": {
+        "type": "string",
+        "enum": ["approved", "rejected", "pending", "all"]
+      }
+    },
+    "district": {
+      "id": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "[0-9]"
+      },
+      "district": {
+        "type": "string",
+        "minLength": 1
+      },
+      "taluk": {
+        "type": "string",
+        "minLength": 1
+      },
+      "status": {
+        "type": "boolean"
+      }
+    },
+    "news": {
+      "id": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "[0-9]"
+      },
+      "news_title": {
+        "type": "string",
+        "minLength": 1
+      },
+      "news_description": {
+        "type": "string",
+        "minLength": 1
+      },
+      "photo": {
+        "type": "string",
+        "minLength": 1
+      },
+      "district": {
+        "type": "string"
+      },
+      "taluk": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "resource": {
+      "id": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "[0-9]"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 3
+      },
+      "mobile": {
+        "type": "string",
+        "pattern": "[0-9]{10}"
+      },
+      "resource_type": {
+        "type": "string",
+        "enum": [
+          "PET_CLINIC",
+          "LABS",
+          "FEED_SHOPS",
+          "FARM_EQUIPMENTS",
+          "POULTRY_EQUIPMENTS"
+        ]
+      },
+      "doorno": {
+        "type": "string",
+        "minLength": 1
+      },
+      "street": {
+        "type": "string",
+        "minLength": 1
+      },
+      "city": {
+        "type": "string",
+        "minLength": 1
+      },
+      "district": {
+        "type": "string",
+        "minLength": 1
+      },
+      "taluk": {
+        "type": "string",
+        "minLength": 1
+      },
+      "pincode": {
+        "type": "string",
+        "pattern": "[0-9]{6}"
+      },
+      "photo": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "status": {
+        "type": "string",
+        "enum": ["approved", "rejected", "pending"]
+      },
+      "post_status": {
+        "type": "string",
+        "enum": ["all", "active", "draft"]
+      },
+      "reason": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "animal": {
+      "id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "pet": {
+        "type": "string",
+        "minLength": 1
+      },
+      "breed": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "buysell": {
+      "id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "species": {
+        "type": "string"
+      },
+      "breed": {
+        "type": "string"
+      },
+      "gender": {
+        "type": "string",
+        "enum": ["male", "female"]
+      },
+      "age": {
+        "type": "string",
+        "minLength": 1
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "mobile": {
+        "type": "string",
+        "pattern": "[0-9]{10}"
+      },
+      "doorno": {
+        "type": "string",
+        "minLength": 1
+      },
+      "district": {
+        "type": "string",
+        "minLength": 1
+      },
+      "taluk": {
+        "type": "string",
+        "minLength": 1
+      },
+      "city": {
+        "type": "string",
+        "minLength": 1
+      },
+      "street": {
+        "type": "string",
+        "minLength": 1
+      },
+      "pincode": {
+        "type": "string",
+        "pattern": "[0-9]{6}"
+      },
+      "price": {
+        "type": "string",
+        "minLength": 1
+      },
+      "color": {
+        "type": "string",
+        "minLength": 1
+      },
+      "about": {
+        "type": "string",
+        "minLength": 1
+      },
+      "photo": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 3,
+        "minItems": 1
+      },
+      "order_id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "payment_status": {
+        "type": "string",
+        "enum": ["pending", "paid"]
+      },
+      "ph_status": {
+        "type": "string",
+        "enum": ["pending", "approved", "rejected"]
+      },
+      "ph_verified_status": {
+        "type": "string",
+        "enum": ["pending", "verified"]
+      }
+    },
+    "adoption": {
+      "id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "species": {
+        "type": "string",
+        "minLength": 1
+      },
+      "breed": {
+        "type": "string",
+        "minLength": 1
+      },
+      "gender": {
+        "type": "string",
+        "enum": ["male", "female"]
+      },
+      "age": {
+        "type": "string",
+        "minLength": 1
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "phone": {
+        "type": "string",
+        "pattern": "[0-9]{10}"
+      },
+      "doorno": {
+        "type": "string",
+        "minLength": 1
+      },
+      "street": {
+        "type": "string",
+        "minLength": 1
+      },
+      "city": {
+        "type": "string",
+        "minLength": 1
+      },
+      "district": {
+        "type": "string",
+        "minLength": 1
+      },
+      "taluk": {
+        "type": "string",
+        "minLength": 1
+      },
+      "pincode": {
+        "type": "string",
+        "pattern": "[0-9]{6}"
+      },
+      "color": {
+        "type": "string",
+        "minLength": 1
+      },
+      "about": {
+        "type": "string",
+        "minLength": 1
+      },
+      "photo": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1,
+        "maxItems": 3
+      }
+    },
+    "whatsapp": {
+      "id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "link": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "(https://)|(http://)"
+      },
+      "status": {
+        "type": "string",
+        "enum": ["ACTIVE", "DEACTIVE", "DELETE"]
+      }
+    },
+    "feedformulation": {
+      "id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "poultry_type": {
+        "type": "string",
+        "minLength": 1
+      },
+      "poultry_standard": {
+        "type": "string",
+        "minLength": 1
+      },
+      "animal_type": {
+        "type": "string",
+        "enum": ["poultry", "ruminant"]
+      },
+      "ingredient": {
+        "type": "string",
+        "minLength": 1
+      },
+      "range": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "([0-9].-.[0-9])"
+      },
+      "cp": {
+        "type": "string",
+        "minLength": 1
+      },
+      "me": {
+        "type": "string",
+        "minLength": 1
+      },
+      "status": {
+        "type": "string",
+        "enum": ["ACTIVE", "DEACTIVE", "DELETE"]
+      }
+    },
+    "drugindex": {
+      "id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "action": {
+        "type": "string",
+        "minLength": 1
+      },
+      "dose": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1
+      },
+      "availability": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1
+      },
+      "note": {
+        "type": "string",
+        "minLength": 1
+      },
+      "status": {
+        "type": "string",
+        "enum": ["ACTIVE", "DEACTIVE", "DELETE"]
+      }
+    },
+    "dose": {
+      "id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "list_id": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1
+      },
+      "species": {
+        "type": "string",
+        "minLength": 1
+      },
+      "one_m": {
+        "type": "string",
+        "minLength": 1
+      },
+      "one_v": {
+        "type": "string",
+        "minLength": 1
+      },
+      "sc": {
+        "type": "string",
+        "minLength": 1
+      },
+      "oral": {
+        "type": "string",
+        "minLength": 1
+      },
+      "status": {
+        "type": "string",
+        "enum": ["ACTIVE", "DEACTIVE", "DELETE"]
+      }
+    },
+    "availability": {
+      "id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "brand": {
+        "type": "string",
+        "minLength": 1
+      },
+      "avail_type": {
+        "type": "string",
+        "minLength": 1
+      },
+      "trade_name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "presentative": {
+        "type": "string",
+        "minLength": 1
+      },
+      "status": {
+        "type": "string",
+        "enum": ["ACTIVE", "DEACTIVE", "DELETE"]
+      }
+    },
+    "customer": {
+      "name": {
+        "type": "string",
+        "minLength": 3
+      },
+      "phone": {
+        "type": "string",
+        "pattern": "[0-9]{10}"
+      },
+      "species": {
+        "type": "string",
+        "minLength": 2
+      },
+      "breed": {
+        "type": "string",
+        "minLength": 1
+      },
+      "petName": {
+        "type": "string",
+        "minLength": 1
+      },
+      "otp": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "[0-9]{4}",
+        "maxLength": 4
+      },
+      "active": {
+        "type": "boolean",
+        "defaultValue": true
+      }
+    },
+    "rating": {
+      "id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "rating": {
+        "type": "string",
+        "pattern": "^[0-5]{1}$"
+      }
+    },
+    "forum": {
+      "id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "chatId": {
+        "type": "string",
+        "minLength": 1
+      },
+      "askerId": {
+        "type": "string",
+        "minLength": 1
+      },
+      "replierId": {
+        "type": "string",
+        "minLength": 1
+      },
+      "chat": {
+        "type": "string",
+        "minLength": 1
+      },
+      "active": {
+        "type": "boolean"
+      }
+    },
+    "verification": {
+      "otp": {
+        "type": "string",
+        "minLength": 4,
+        "maxLength": 4
+      },
+      "phone": {
+        "type": "string",
+        "pattern": "[0-9]{10}"
+      },
+      "id": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "editRequest": {
+      "query": {
+        "type": "string",
+        "minLength": 1
+      },
+      "status": {
+        "type": "string",
+        "enum": ["pending", "rejected", "approved"]
+      }
+    },
+    "ruminant": {
+      "id": {
+        "type": "string",
+        "minLength": 1
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "ruminant_type": {
+        "type": "string",
+        "enum": ["energy", "protein", "by product"]
+      },
+      "cp": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 100
+      }
+    }
+  }
+}
